@@ -1,0 +1,20 @@
+.header {
+    &__navigation {
+        &-item {
+            a {
+                color: $secondary;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                &:hover, &:focus, &.active {
+                    color: $primary !important;
+                }
+            }
+        }
+    }
+    &__branding {
+        img {
+            height: 60px
+        }
+    }
+}
