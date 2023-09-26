@@ -1,5 +1,5 @@
-import Alert from './alert'
+import Jumbotron from './jumbotron'
 
 export {
-    Alert
+    Jumbotron
 }

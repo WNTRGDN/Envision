@@ -5,7 +5,8 @@
                 color: $secondary;
                 text-decoration: none;
                 text-transform: uppercase;
-                letter-spacing: 1px;
+                letter-spacing: 2px;
+                font-weight: 200;
                 &:hover, &:focus, &.active {
                     color: $primary !important;
                 }

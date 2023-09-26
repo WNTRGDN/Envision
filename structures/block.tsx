@@ -1,20 +1,22 @@
 import React, { FC } from 'react'
-import { Row, Col } from 'react-bootstrap';
-import { Alert } from 'WNTR/blocks'
+import { Container, Row, Col } from 'react-bootstrap';
+import { Jumbotron } from 'WNTR/blocks'
 import { IBlock } from 'WNTR/interfaces';
 
 var controls: { [key: string]: any } = {
-    Alert: Alert
+    Jumbotron: Jumbotron
 };
 
 const Block: FC<IBlock> = (block) => {
     const Block = controls[block.type]
     return (
-        <Row>
-            <Col>
-                <Block {...block} />
-            </Col>
-        </Row>
+        <Container fluid>
+            <Row>
+                <Col>
+                    <Block {...block} />
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
