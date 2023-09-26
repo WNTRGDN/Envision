@@ -1,9 +1,11 @@
-import Main from './main'
 import Header from './header'
+import Main from './main'
 import Block from './block'
+import Footer from './footer'
 
 export {
-    Main,
     Header,
-    Block
+    Main,
+    Block,
+    Footer
 }

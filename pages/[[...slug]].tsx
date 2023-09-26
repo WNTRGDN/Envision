@@ -1,7 +1,7 @@
 import axios from "axios";
 import Head from 'next/head'
 import { IWebsite, IPage } from 'WNTR/interfaces'
-import { Main, Header } from 'WNTR/structures'
+import { Header, Main, Footer } from 'WNTR/structures'
 import { GetServerSideProps } from "next";
 
 export default function Index({ website, page }: { website: IWebsite, page: IPage }) {
@@ -30,6 +30,7 @@ export default function Index({ website, page }: { website: IWebsite, page: IPag
       </Head>
       <Header {...website} />
       <Main {...page} />
+      <Footer {...website} />
     </>
   )
 }

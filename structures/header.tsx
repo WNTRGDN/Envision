@@ -12,9 +12,9 @@ const Header: FC<IWebsite> = (website) => {
 
     return (
         <header className="header">
-            <Navbar expand="lg" className="header__navbar bg-body-tertiary">
-                <Container fluid>
-                    <Navbar.Brand as={Link} href="/" className="header__branding">
+            <Navbar expand="lg" className="header__navbar bg-body-tertiary" fixed="top">
+                <Container>
+                    <Navbar.Brand as={Link} scroll={false} href="/" className="header__branding">
                         <img src={website.settings.logo} />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="offcanvasNavbar-expand-lg" />

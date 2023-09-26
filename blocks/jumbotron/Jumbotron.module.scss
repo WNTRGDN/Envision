@@ -2,11 +2,12 @@
 
 .jumbotron {
     padding: 60px;
-    height: 550px;
     display: flex;
+    margin-bottom: 30px;
     background-size: 100%;
     background-position: bottom;
-    background-repeat: repeat-x no-repeat, repeat repeat;
+    background-repeat: repeat-x no-repeat, no-repeat no-repeat;
+    background-color: $primary;
 }
 
 .container {
@@ -14,6 +15,9 @@
 }
 
 .content {
+    h1 {
+        color: $white;
+    }
     h2 {
         color: $white;
         font-weight: 700;
@@ -22,5 +26,11 @@
     p {
         color: $white;
         font-weight: 400;
+    }
+}
+
+.hasImage {
+    @media (min-width: 767px) {
+        height: 550px;
     }
 }

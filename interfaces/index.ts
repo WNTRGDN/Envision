@@ -5,9 +5,15 @@ export interface IWebsite {
     routes: IRoute[];
     menus: IMenu[];
     settings: ISettings;
-    socials: string;
+    socials: ISocials;
     createDate: Date;
     updateDate: Date;
+}
+
+export interface ISocials {
+    facebook: string;
+    instagram: string;
+    twitter: string
 }
 
 export interface IRoute {
@@ -78,4 +84,6 @@ export interface IHeader {
 export interface IFooter {
     settings: ISettings;
     menus: IMenu[];
+    name: string;
+    socials: ISocials;
 }

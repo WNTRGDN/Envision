@@ -1,0 +1,50 @@
+@import '../../styles/variables';
+
+.wntrCardsBlock {
+    margin-bottom: 60px;
+}
+
+.h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    background: -webkit-linear-gradient(45deg, $secondary, lighten($secondary, 10%));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -ms-background-clip: text;
+    -o-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card {
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    -webkit-transition: 0.3s -webkit-filter linear;
+    -moz-transition: 0.3s -moz-filter linear;
+    -moz-transition: 0.3s filter linear;
+    -ms-transition: 0.3s -ms-filter linear;
+    -o-transition: 0.3s -o-filter linear;
+    transition: 0.3s filter linear, 0.3s -webkit-filter linear;
+    &:hover {
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+}
+
+.h3 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    color: $white;
+    text-transform: uppercase;
+    font-size: 18px;
+}
