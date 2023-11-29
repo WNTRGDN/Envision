@@ -20,7 +20,7 @@
       "@/api/*": ["api/*"],
       "@/types/*": ["interfaces/*"],
       "@/components/*": ["components/*"],
-      "@/structures/*": ["structures/*"]
+      "@/structures/*": ["components/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

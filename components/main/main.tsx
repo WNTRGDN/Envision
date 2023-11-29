@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Block } from 'WNTR/structures'
+import { Block } from 'WNTR/components'
 import { IPage } from 'WNTR/interfaces'
 
 const Main: FC<IPage> = (page) => {

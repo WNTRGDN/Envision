@@ -50,8 +50,13 @@ const Footer: FC<IFooter> = (footer) => {
                                 <dt>Opening Hours</dt>
                                 <dd>
                                     <div className="d-flex flex-column">
-                                        {footer.settings.openingHours.map((hour, index) => {
-                                            return(<div key={index}>{hour.day}: {moment(new Date(hour.opening)).format('h:mma')} - {moment(new Date(hour.closing)).format('h:mma')}</div>)
+                                        {footer.settings.openingHours.sort((a,b) => { return a.order - b.order }).map((hour, index) => {
+                                            return(
+                                                <Row key={index}>
+                                                    <Col>{hour.day}:</Col>
+                                                    <Col>{hour.opening ? `${moment(new Date(hour.opening)).format('h:mm a')} - ${moment(new Date(hour.closing)).format('h:mm a')}` : 'Closed'}</Col>
+                                                </Row>
+                                            )
                                         })}
                                     </div>
                                 </dd>

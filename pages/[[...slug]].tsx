@@ -1,10 +1,19 @@
-import axios from "axios";
 import Head from 'next/head'
+import Context from 'WNTR/utils/context'
+import axios from 'axios'
+import { GetServerSideProps } from 'next'
+import { useContext, useEffect } from 'react'
+import { Loading, Header, Main, Footer } from 'WNTR/components'
 import { IWebsite, IPage } from 'WNTR/interfaces'
-import { Header, Main, Footer } from 'WNTR/structures'
-import { GetServerSideProps } from "next";
 
 export default function Index({ website, page }: { website: IWebsite, page: IPage }) {
+  
+  const context = useContext(Context)
+  
+  useEffect(() => {
+      context.setWebsite(website)
+      context.setPage(page)
+  }, [website, page])
 
   return (
     <>
@@ -26,8 +35,12 @@ export default function Index({ website, page }: { website: IWebsite, page: IPag
         <meta name="twitter:title" content={page.metaData.title ?? page.name + ' | ' + website.name} />
         <meta name="twitter:description" content={page.metaData.description} />
         <meta name="twitter:image" content={page.metaData.image} />
+        <meta name="environment" content={process.env.NEXT_PUBLIC_VERCEL_ENV} />
+        {process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production' ? <meta name="robots" content="noindex,follow" /> : null }
         <link rel="canonical" href={page.url}></link>
       </Head>
+      { process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production' ? <div className="sizeInd" /> : null }
+      { context.loading ? <Loading /> : null }
       <Header {...website} />
       <Main {...page} />
       <Footer {...website} />
@@ -37,14 +50,17 @@ export default function Index({ website, page }: { website: IWebsite, page: IPag
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   let path = "/";
-  [params?.slug].map((slug) => path += slug?.toString().replace(",","/") + "/");
+  [params?.slug].map((slug) => path += slug?.toString().replace(",", "/") + "/")
 
-  axios.defaults.headers.method = 'get';
-  axios.defaults.baseURL = process.env.API_HOST;
-  axios.defaults.headers.common['ApiKey'] = process.env.API_KEY;
-
-  const website = await axios({ url: '/api/website' });
-  const page = await axios({ url: `/api/page/${params?.slug && website.data.routes[path] !== undefined ? website.data.routes[path] : website.data.id}` });
+  const api = axios.create({
+      baseURL: process.env.API_HOST,
+      headers: {
+          'ApiKey': process.env.API_KEY
+      }
+  })
+  const website = await api.get('/api/website')
+  const id = params?.slug && website.data.routes[path] !== undefined ? website.data.routes[path] : website.data.id;
+  const page = await api.get('/api/page/' + id)
 
   return { props: { website: website.data, page: page.data } }
 }

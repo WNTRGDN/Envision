@@ -5,7 +5,6 @@ import { IWebsite } from 'WNTR/interfaces'
 import { Container, Navbar, Nav, Offcanvas } from 'react-bootstrap';
 
 const Header: FC<IWebsite> = (website) => {
-    const router = useRouter()
     let menu = website.menus.filter(m => m.title === "Main Menu")[0]
     
     menu.exists = menu !== undefined;

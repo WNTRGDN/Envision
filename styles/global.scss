@@ -1,0 +1,20 @@
+@import url("https://use.typekit.net/nht2oqy.css");
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+:root {
+    --primary-color: rgb(191, 29, 45);
+    --secondary-color: rgb(84, 89, 94);
+    --white-color: rgb(255, 255, 255);
+    --primary-font: 'poppins', sans-serif;
+    --primary-font-weight-light: 200;
+    --primary-font-weight-normal: 400;
+    --primary-font-weight-bold: 700;
+    --gutter: 15px;
+}
+
+::-webkit-scrollbar { display: none; }
+
+// components
+@import '../components/loading/loading';
+@import '../components/header/header';
+@import '../components/footer/footer';

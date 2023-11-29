@@ -1,14 +1,10 @@
 import React, { FC } from 'react'
-import { Jumbotron, Split, Image, Text, Cards } from 'WNTR/blocks'
-import { IBlock } from 'WNTR/interfaces';
+import { Jumbotron } from 'WNTR/blocks'
+import { IBlock } from 'WNTR/interfaces'
 
 var controls: { [key: string]: any } = {
-    Jumbotron: Jumbotron,
-    Split: Split,
-    Image: Image,
-    Text: Text,
-    Cards: Cards
-};
+    Jumbotron: Jumbotron
+}
 
 const Block: FC<IBlock> = (block) => {
     if (controls[block.type] !== undefined){

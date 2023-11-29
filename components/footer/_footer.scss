@@ -1,6 +1,6 @@
 .footer {
-    background-color: $secondary;
-    color: $white;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
     a {
         color: $white;
         text-decoration: none;
@@ -11,10 +11,10 @@
     }
     dl {
         dt {
-            margin-bottom: 5px;
+            margin-bottom: calc(var(--gutter)/3);
         }
         dd {
-            margin-bottom: 15px;
+            margin-bottom: var(--gutter);
         }
     }
 }

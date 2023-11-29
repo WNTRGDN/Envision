@@ -5,9 +5,97 @@ export interface IWebsite {
     routes: IRoute[];
     menus: IMenu[];
     settings: ISettings;
+    gA4: string;
     socials: ISocials;
+    sitemap: IUrl[];
+    form: IForm;x
     createDate: Date;
     updateDate: Date;
+}
+
+export interface IUrl {
+    loc: string,
+    lastmod: string,
+    changefreq: string,
+    priority: number
+}
+
+export interface IForm extends IBlock {
+    id: string,
+    name: string,
+    allFields: IField[],
+    fields: IField[],
+    containers: IContainer[],
+    messageOnSubmit: string,
+    nextLabel: string,
+    prevLabel: string,
+    submitLabel: string,
+    fieldTypes: Record<string, string>
+}
+
+export interface IContainer {
+    caption: string,
+    id: string,
+    rows: IRow[],
+    sortOrder: number
+}
+
+export interface IRow {
+    caption: string,
+    cols: ICol[],
+    condition: string,
+    id: string,
+    sortOrder: number
+}
+
+export interface ICol {
+    caption: string,
+    fields: IField[],
+    width: number
+}
+
+export interface IField {
+    alias: string,
+    blockAlias: string,
+    allowMultipleFileUploads: boolean,
+    allowedUploadTypes: object,
+    caption: string,
+    containsSensitiveData: boolean,
+    cssClass: string,
+    fieldTypeId: string,
+    fieldType: string,
+    id: string,
+    invalidErrorMessage: string,
+    mandatory: boolean,
+    placeholder: string,
+    preValues: IPrevalue[],
+    regEx: string,
+    requiredErrorMessage: string,
+    settings: IFormFieldSettings,
+    submitting: boolean
+}
+
+export interface IPrevalue {
+    caption: string,
+    value: string
+}
+
+export interface IFormFieldSettings {
+    autocompleteAttribute: string,
+    defaultValue: string,
+    fieldType: string,
+    maximumLength: string,
+    numberOfRows: number,
+    placeholder: string,
+    showLabel: string
+}
+
+export interface IHTMLFormElement extends HTMLFormElement {
+    readonly elements: IHTMLFormControlsCollection;
+}
+
+interface IHTMLFormControlsCollection extends HTMLFormControlsCollection {
+    [key: string]: HTMLInputElement | any;
 }
 
 export interface ISocials {
@@ -24,6 +112,12 @@ export interface IParams {
     slug: string[];
 }
 
+export interface ICrops {
+    Hero: string,
+    Thumbnail: string,
+    Banner: string
+}
+
 export interface IPage {
     id: number;
     key: string;
@@ -34,6 +128,12 @@ export interface IPage {
     metaData: IMetaData;
     createDate: string;
     updateDate: string;
+    breadcrumbs: IBreadcrumb[];
+}
+
+export interface IBreadcrumb {
+    title: string,
+    url: string
 }
 
 export interface IMetaData {
@@ -68,6 +168,7 @@ export interface IOpeningHours {
     day: string;
     opening: Date;
     closing: Date;
+    order: number;
 }
 
 export interface IBlock {
