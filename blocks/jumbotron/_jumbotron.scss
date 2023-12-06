@@ -1,0 +1,27 @@
+.wntrJumbotronBlock {
+    font-family: var(--secondary-font);
+    font-weight: var(--seconary-font-weight-normal);
+    height: 90vh;
+    padding-top: calc(var(--gutter) * 6);
+    position: relative;
+    &__background {
+        z-index: 0;
+    }
+    &__container, &__row, &__col {
+        height: 100%;
+        z-index: 1;
+    }
+    &__body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        height: 100%;
+    }
+    &__content {
+        color: var(--white-color);
+        margin-top: auto;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: smaller;
+    }
+}

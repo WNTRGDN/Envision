@@ -1,14 +1,29 @@
 .header {
+    &__navbar {
+        background-color: transparent;
+        -webkit-transition: 0.3s background-color linear;
+        -moz-transition: 0.3s background-color linear;
+        -moz-transition: 0.3s background-color linear;
+        -ms-transition: 0.3s background-color linear;
+        -o-transition: 0.3s background-color linear;
+        transition: 0.3s background-color linear, 0.3s -webkit-filter linear;
+        &.scrolling {
+            background-color: var(--white-color-alpha);
+        }
+    }
     &__navigation {
         &-item {
-            a {
-                color: $secondary;
+            margin-left: var(--gutter);
+            a, button {
+                color: var(--secondary-color);
                 text-decoration: none;
                 text-transform: uppercase;
                 letter-spacing: 2px;
-                font-weight: 200;
+                font-weight: 400;
                 &:hover, &:focus, &.active {
-                    color: $primary !important;
+                    color: var(--primary-color);
+                    outline: none;
+                    background-color: transparent;
                 }
             }
         }

@@ -1,0 +1,13 @@
+.wntrImageBlock {
+    margin-top: calc(var(--bs-gutter-x) * 2);
+    &__image {
+       width: 100%;
+    }
+    &__parallax {
+        min-height: 400px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

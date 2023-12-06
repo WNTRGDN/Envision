@@ -1,0 +1,12 @@
+.wntrTextBlock {
+    margin: calc(var(--gutter) * 6) 0;
+    color: var(--white-color);
+    a {
+        color: var(--white-color);
+        text-underline-offset: 0.5em;
+    }
+    h3 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}

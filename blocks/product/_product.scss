@@ -1,0 +1,26 @@
+.wntrProductBlock {
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
+        padding-right: calc(100vw - 80%);
+        padding-left: calc(100vw - 80%);
+    }
+    color: var(--secondary-color);
+    .container {
+        padding-top: calc(var(--gutter) * 3);
+        padding-bottom: calc(var(--gutter) * 3);
+    }
+    &__image {
+        width: 100%;
+        padding: calc(var(--gutter)/2);
+        margin-bottom: var(--gutter);
+        @media (min-width: map-get($grid-breakpoints, "lg")) {
+            margin-bottom: 0;
+        }
+    }
+    &__name {
+        margin-bottom: var(--gutter);
+    }
+    &__action {
+        padding-top: var(--gutter);
+        margin-bottom: calc(var(--gutter) * 2);
+    }
+}

@@ -8,7 +8,7 @@ export interface IWebsite {
     gA4: string;
     socials: ISocials;
     sitemap: IUrl[];
-    form: IForm;x
+    form: IForm;
     createDate: Date;
     updateDate: Date;
 }
@@ -112,6 +112,16 @@ export interface IParams {
     slug: string[];
 }
 
+export interface IImageProps {
+    bytes: number,
+    extension: string,
+    file: string,
+    height: number,
+    width: number,
+    cache: number,
+    crops: ICrops
+}
+
 export interface ICrops {
     Hero: string,
     Thumbnail: string,
@@ -187,4 +197,68 @@ export interface IFooter {
     menus: IMenu[];
     name: string;
     socials: ISocials;
+}
+
+// commerce
+
+export interface IProduct {
+    id: string,
+    object: string,
+    active: boolean,
+    created: Date,
+    defaultPriceId: string,
+    defaultPrice: IPrice,
+    description: string,
+    images: string[],
+    name: string,
+    taxCodeId: string,
+    details: string,
+    updated: Date,
+    available: number,
+    type: string,
+    alias: string,
+    order: number,
+    quantity: number
+}
+
+export interface IProductLite {
+    active: boolean,
+    amount: number,
+    available: number,
+    currency: string,
+    description: string,
+    id: string,
+    images: string[],
+    name: string,
+    quantity: number,
+    sold: number
+}
+
+export interface IPrice {
+    id: string,
+    object: string,
+    active: boolean,
+    billingScheme: string,
+    created: Date,
+    currency: string,
+    productId: string,
+    recurring: IRecurring,
+    taxBehavior: string,
+    type: string,
+    unitAmount: number,
+    unitAmountDecimal: number,
+}
+
+export interface IRecurring {
+    interval: string,
+    intervalCount: number,
+    trialPeriodDays: number,
+    usageType: string,
+}
+
+export interface ISessionLineItem {
+    product: string;
+    price: string;
+    quantity: number;
+    recurring: boolean;
 }

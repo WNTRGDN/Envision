@@ -1,9 +1,17 @@
 import React, { FC } from 'react'
-import { Jumbotron } from 'WNTR/blocks'
+import { Jumbotron, Text, Image, Split, Cards, Heading, Breadcrumbs, Teasers, Product } from 'WNTR/blocks'
 import { IBlock } from 'WNTR/interfaces'
 
 var controls: { [key: string]: any } = {
-    Jumbotron: Jumbotron
+    Jumbotron: Jumbotron,
+    Text: Text,
+    Image: Image,
+    Split: Split,
+    Cards: Cards,
+    Heading: Heading,
+    Breadcrumbs: Breadcrumbs,
+    Teasers: Teasers,
+    Product: Product
 }
 
 const Block: FC<IBlock> = (block) => {

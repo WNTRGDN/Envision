@@ -3,7 +3,7 @@ import Context from 'WNTR/utils/context'
 import axios from 'axios'
 import { GetServerSideProps } from 'next'
 import { useContext, useEffect } from 'react'
-import { Loading, Header, Main, Footer } from 'WNTR/components'
+import { Loading, Header, Main, Footer, Cart } from 'WNTR/components'
 import { IWebsite, IPage } from 'WNTR/interfaces'
 
 export default function Index({ website, page }: { website: IWebsite, page: IPage }) {
@@ -42,6 +42,7 @@ export default function Index({ website, page }: { website: IWebsite, page: IPag
       { process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production' ? <div className="sizeInd" /> : null }
       { context.loading ? <Loading /> : null }
       <Header {...website} />
+      <Cart />
       <Main {...page} />
       <Footer {...website} />
     </>
@@ -50,7 +51,7 @@ export default function Index({ website, page }: { website: IWebsite, page: IPag
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   let path = "/";
-  [params?.slug].map((slug) => path += slug?.toString().replace(",", "/") + "/")
+  [params?.slug].map((slug) => path += slug?.toString().replaceAll(",", "/") + "/")
 
   const api = axios.create({
       baseURL: process.env.API_HOST,

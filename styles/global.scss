@@ -4,7 +4,11 @@
 :root {
     --primary-color: rgb(191, 29, 45);
     --secondary-color: rgb(84, 89, 94);
+    --tertiary-color: rgb(158, 158, 158);
     --white-color: rgb(255, 255, 255);
+    --white-color-alpha: rgba(255, 255, 255, 0.5);
+    --dark-color: rgb(34, 34, 34);
+    --dark-color-alpha: rgba(34, 34, 34, 0.8);
     --primary-font: 'poppins', sans-serif;
     --primary-font-weight-light: 200;
     --primary-font-weight-normal: 400;
@@ -17,4 +21,44 @@
 // components
 @import '../components/loading/loading';
 @import '../components/header/header';
+@import '../components/main/main';
 @import '../components/footer/footer';
+@import '../components/cart/cart';
+
+// blocks
+@import '../blocks/jumbotron/jumbotron';
+@import '../blocks/text/text';
+@import '../blocks/image/image';
+@import '../blocks/split/split';
+@import '../blocks/cards/cards';
+@import '../blocks/heading/heading';
+@import '../blocks/breadcrumbs/breadcrumbs';
+@import '../blocks/teasers/teasers';
+@import '../blocks/product/product';
+
+.sizeInd {
+    z-index: 999;
+    &::after {
+        content: "xs";
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        @media (min-width: map-get($grid-breakpoints, "sm")) {
+            content: "sm";
+        }
+        @media (min-width: map-get($grid-breakpoints, "md")) {
+            content: "md";
+        }
+        @media (min-width: map-get($grid-breakpoints, "lg")) {
+            content: "lg";
+        }
+        @media (min-width: map-get($grid-breakpoints, "xl")) {
+            content: "xl";
+        }
+        @media (min-width: map-get($grid-breakpoints, "xxl")) {
+            content: "xxl";
+        }
+    }
+}

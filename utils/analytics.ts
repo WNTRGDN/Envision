@@ -1,3 +1,5 @@
+export const GA_TRACKING_ID = 'G-ZHT9M2JNLK'
+
 export const pageview = (url: URL, id: string) => {
   if (typeof window.gtag !== 'undefined') {
     window.gtag("config", id, {

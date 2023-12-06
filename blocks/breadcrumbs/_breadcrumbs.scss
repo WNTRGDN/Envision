@@ -1,0 +1,27 @@
+.wntrBreadcrumbsBlock {
+    margin: calc(var(--gutter)*2) 0;
+    &__breadcrumbs {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    &__breadcrumb {
+        margin-right: var(--gutter);
+        &-link {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        &:not(:last-child){
+            a {
+                color: var(--white-primary-alpha);
+            }
+            &::after {
+                content: "»";
+                color: var(--white-primary-alpha);
+                padding-left: var(--gutter);
+            }
+        }
+    }
+}

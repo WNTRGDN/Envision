@@ -1,0 +1,18 @@
+.wntrHeadingBlock {
+    padding-top: calc(var(--gutter) * 8);
+    padding-bottom: calc(var(--gutter) * 5);
+    background-color: var(--tertiary-color);
+    background-size: 50% auto, 100% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &__heading {
+        font-family: var(--secondary-font);
+        font-weight: var(--seconary-font-weight-normal);
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: var(--white-color);
+        //text-shadow: var(--dark-color) 0px 0px 10px;
+    }
+}

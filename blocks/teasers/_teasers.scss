@@ -1,0 +1,31 @@
+.wntrTeasersBlock {
+    color: var(--secondary-color);
+    margin-top: calc(var(--gutter) * 2);
+    margin-bottom: calc(var(--gutter) * 2); 
+    a {
+        text-decoration: none;
+        color: var(--secondary-color);
+    }
+    &__teaser {
+        position: relative;
+        padding: var(--gutter);
+        border: 1px solid var(--primary-color);
+        transition: 0.2s transform linear, 0.2s -webkit-filter linear;
+    }
+    &__image {
+        max-width: 100%;
+        margin-bottom: var(--gutter);
+    }
+    &__heading {
+        margin-top: calc(var(--gutter) * 2);
+        margin-bottom: calc(var(--gutter) * 2); 
+        letter-spacing: 2px;
+        font-weight: normal;
+    }
+    &__text {
+        small {
+            font-size: 14px;
+            font-weight: normal;
+        }
+    }
+}
