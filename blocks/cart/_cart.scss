@@ -1,0 +1,44 @@
+.wntrCartBlock {
+    .container {
+        padding-top: calc(var(--gutter) * 2);
+    }
+    &__heading {
+        margin-bottom: calc(var(--gutter) * 2);
+    }
+    &__summary {
+        background-color: var(--wntr-quaternary-color);
+        padding: var(--gutter);
+        &-table {
+            margin-bottom: var(--gutter);
+            width: 100%;
+            tr {
+                td:first-child {
+                    font-weight: bold;
+                }
+                td:last-child {
+                    text-align: right;
+                }
+            }
+        }
+        &-checkout {
+            width: 100%;
+            border-radius: 0;
+            background-color: transparent;
+        }
+    }
+    &__item { 
+        border-bottom: 1px solid var(--secondary-color);
+        padding-top: var(--gutter);
+        &-image {
+            width: 100%;
+        }
+    }
+
+    .wntrForm {
+        &__field {
+            input, textarea {
+                color: var(--wntr-white-color);
+            }
+        }
+    }
+}

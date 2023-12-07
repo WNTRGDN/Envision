@@ -1,5 +1,5 @@
 import 'WNTR/styles/global.scss'
-import { useState, useEffect, useContext, use } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import type { AppProps } from 'next/app'
 import { useCookies } from 'react-cookie'

@@ -1,11 +1,16 @@
 import React, { FC, useState, useEffect, useContext } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { IWebsite } from 'WNTR/interfaces'
 import { Container, Navbar, Nav, Offcanvas, Button } from 'react-bootstrap'
+import Context from 'WNTR/utils/context'
 import ShoppingCart from 'WNTR/utils/cart-context'
 
 const Header: FC<IWebsite> = (website) => {
+
+    const router = useRouter()
     const [scrolling, setScrolling] = useState(false)
+    const context = useContext(Context)
     const cart = useContext(ShoppingCart)
 
     useEffect(() => {
@@ -31,16 +36,14 @@ const Header: FC<IWebsite> = (website) => {
                         </Offcanvas.Header>
                         <Offcanvas.Body>
                             <Nav className="header__navigation justify-content-end flex-grow-1">
-                            {menu.links.map((link, index) =>
-                                <Nav.Item key={index} className="header__navigation-item text-right">
-                                    <Nav.Link as={Link} scroll={false} eventKey={index} href={link.url}>{link.title}</Nav.Link>
-                                </Nav.Item>
-                            )}
-                            {cart.items.length ? 
-                                <Nav.Item key={999} className="header__navigation-item text-right">
+                                {menu.links.map((link, index) =>
+                                    <Nav.Item key={index} className="header__navigation-item text-right">
+                                        <Nav.Link as={Link} scroll={false} eventKey={index} href={link.url}>{link.title}</Nav.Link>
+                                    </Nav.Item>
+                                )}
+                                <Nav.Item key={999} className="header__navigation-item text-right" hidden={router.asPath == context.website.cartPage}>
                                     <Nav.Link as={Button} eventKey={999} onClick={cart.open}>Cart ({cart.items.length})</Nav.Link>
                                 </Nav.Item>
-                            : null}
                             </Nav>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>

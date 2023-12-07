@@ -1,4 +1,4 @@
-import React, { FC, useState, useContext } from 'react'
+import React, { FC, useState, useContext, useEffect } from 'react'
 import Link from 'next/link'
 import { ICrops, ISessionLineItem } from 'WNTR/interfaces'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
@@ -27,11 +27,10 @@ const Teasers: FC<ITeasers> = (teasers) => {
 
 const Teaser: FC<ITeaser> = (item) => {
 
-    console.log(item)
+    var cart = useContext(ShoppingCart)
+    var index = [] as ISessionLineItem[]
 
-    const cart = useContext(ShoppingCart)
-    const index = cart.items.filter((product: ISessionLineItem) => product.product == item.product.product)
-    const [added, setAdded] = useState(index.length > 0)
+    const [added, setAdded] = useState(false)
     const product: ISessionLineItem = {
         product: item.product.product,
         price: item.product.price,
@@ -49,8 +48,13 @@ const Teaser: FC<ITeaser> = (item) => {
         cart.remove(product)
     }
 
+    useEffect(() => {
+        index = cart.items.filter((product: ISessionLineItem) => product.product == item.product.product)
+        setAdded(index.length > 0)
+    },[cart.items.length])
+
     return (
-        <Col xs={12} sm={3}>
+        <Col xs={12} sm={6} lg={4} xxl={3}>
             <div className={`${item.alias}__teaser`}>
                 { item.image ? <Link href={item.link}><Image className={`${item.alias}__image`} src={item.crops.Thumbnail} /></Link> : null }
                 <Link href={item.link}><h4 className={`${item.alias}__title`}>{item.title}</h4></Link>

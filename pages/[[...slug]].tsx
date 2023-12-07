@@ -49,14 +49,15 @@ export default function Index({ website, page }: { website: IWebsite, page: IPag
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params, req }) => {
   let path = "/";
   [params?.slug].map((slug) => path += slug?.toString().replaceAll(",", "/") + "/")
 
   const api = axios.create({
       baseURL: process.env.API_HOST,
       headers: {
-          'ApiKey': process.env.API_KEY
+          'ApiKey': process.env.API_KEY,
+          'Cart': req.cookies['envision']
       }
   })
   const website = await api.get('/api/website')

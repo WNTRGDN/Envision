@@ -7,6 +7,8 @@ import Heading from "WNTR/blocks/heading/heading"
 import Breadcrumbs from "WNTR/blocks/breadcrumbs/breadcrumbs"
 import Teasers from "WNTR/blocks/teasers/teasers"
 import Product from "WNTR/blocks/product/product"
+import Cart from "WNTR/blocks/cart/cart"
+import Checkout from "WNTR/blocks/checkout/checkout"
 
 export {
     Jumbotron,
@@ -17,5 +19,7 @@ export {
     Heading,
     Breadcrumbs,
     Teasers,
-    Product
+    Product,
+    Cart,
+    Checkout
 }

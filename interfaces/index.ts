@@ -9,6 +9,8 @@ export interface IWebsite {
     socials: ISocials;
     sitemap: IUrl[];
     form: IForm;
+    cartPage: string;
+    checkoutPage: string;
     createDate: Date;
     updateDate: Date;
 }
