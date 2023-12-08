@@ -220,7 +220,9 @@ export interface IProduct {
     type: string,
     alias: string,
     order: number,
-    quantity: number
+    quantity: number,
+    removeFromCart: (product: IProduct) => void,
+    updateQuantity: (id: string, quantity: number) => void
 }
 
 export interface IProductLite {

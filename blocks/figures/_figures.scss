@@ -1,0 +1,79 @@
+.wntrFiguresBlock {
+    color: var(--white-color);
+    margin-top: calc(var(--gutter) * 3);
+    background-color: var(--primary-color);
+    padding-top: calc(var(--gutter) * 2);
+    padding-bottom: calc(var(--gutter) * 2);
+    &__title {
+        font-family: var(--secondary-font);
+        margin-bottom: calc(var(--gutter) * 2);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-align: center;
+    }
+    &__text {
+        margin-bottom: calc(var(--gutter) * 2);
+    }
+    &__figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__amount {
+        --p: 100;
+        --size: 150px;
+
+        color: var(--white-color);
+        width: var(--size);
+        height: var(--size);
+        aspect-ratio: 1;
+        position: relative;
+        display: inline-grid;
+        place-content: center;
+        animation: p 1s .5s both;
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+        }
+        &:before {
+            inset: 0;
+            z-index: 0;
+            opacity: 0.5;
+            background: radial-gradient(farthest-side,var(--primary-color) 98%,#0000) top/var(--gutter) calc(var(--gutter)/2) no-repeat, conic-gradient(var(--primary-color) calc(var(--p)*1%),#0000 0);
+            -webkit-mask: radial-gradient(farthest-side,#0000 calc(99% - calc(var(--gutter)/2)),#03a16c calc(100% - calc(var(--gutter)/2)));
+            mask: radial-gradient(farthest-side,#0000 calc(99% - calc(var(--gutter)/2)),#03a16c calc(100% - calc(var(--gutter)/2)));
+        }
+        &:after {
+            z-index: 3;
+            inset: calc(50% - calc(var(--gutter)/2)/2);
+            background: var(--secondary-color);
+            transform: rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--size)/2));
+        }
+        &-inner {
+            &:before {
+                inset: 0;
+                opacity: 1;
+                z-index: 4;
+                background: radial-gradient(farthest-side,var(--primary-color) 98%,#0000) top/calc(var(--gutter)/2) calc(var(--gutter)/2) no-repeat, conic-gradient(var(--secondary-color) calc(var(--p)*1%),#0000 0);
+                -webkit-mask: radial-gradient(farthest-side,#0000 calc(99% - calc(var(--gutter)/2)),#03a16c calc(100% - calc(var(--gutter)/2)));
+                mask: radial-gradient(farthest-side,#0000 calc(99% - calc(var(--gutter)/2)),#03a16c calc(100% - calc(var(--gutter)/2)));
+            }
+        }
+    }
+    &__label {
+        margin-top: calc(var(--gutter)*2);
+        margin-bottom: var(--gutter);
+    }
+}
+
+@keyframes p {
+    from{--p:0}
+}
+
+@property --p{
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+}

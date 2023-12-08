@@ -1,8 +1,8 @@
 .wntrTextBlock {
-    margin: calc(var(--gutter) * 6) 0;
-    color: var(--white-color);
+    margin-top: calc(var(--gutter) * 3);
+    color: var(--secondary-color);
     a {
-        color: var(--white-color);
+        color: var(--primary-color);
         text-underline-offset: 0.5em;
     }
     h3 {

@@ -9,6 +9,7 @@ import Teasers from "WNTR/blocks/teasers/teasers"
 import Product from "WNTR/blocks/product/product"
 import Cart from "WNTR/blocks/cart/cart"
 import Checkout from "WNTR/blocks/checkout/checkout"
+import Figures from "WNTR/blocks/figures/figures"
 
 export {
     Jumbotron,
@@ -21,5 +22,6 @@ export {
     Teasers,
     Product,
     Cart,
-    Checkout
+    Checkout,
+    Figures
 }

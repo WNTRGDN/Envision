@@ -43,8 +43,8 @@ export default function App({ Component, pageProps }: AppProps) {
       state: false,
       add,
       remove,
+      update,
       open,
-      clear
     })
 
     function add(item: ISessionLineItem) {
@@ -59,16 +59,17 @@ export default function App({ Component, pageProps }: AppProps) {
       setCart(Object.assign({}, cart, cart.items))
       setCookie('envision', cart.items, { path: '/' })
     }
+    
+    function update(item: ISessionLineItem) {
+      let index = cart.items.findIndex(d => d.product === item.product)
+      cart.items[index].quantity = item.quantity
+      setCart(Object.assign({}, cart, cart.items))
+      setCookie('envision', cart.items, { path: '/' })
+    }
 
     function open() {
       cart.state = !cart.state
       setCart(Object.assign({}, cart, cart.state))
-    }
-
-    function clear() {
-      //cart.items = []
-      //setCart(Object.assign({}, cart, []))
-      //setCookie('envision', [], { path: '/' })
     }
     
     useEffect(() => {

@@ -1,7 +1,7 @@
 import React, { FC, useState, useContext, useEffect } from 'react'
-import { IProduct, ISessionLineItem } from '../../interfaces'
+import { IProduct, ISessionLineItem } from 'WNTR/interfaces'
 import { Container, Row, Col, Image, InputGroup, Button, Form } from 'react-bootstrap'
-import ShoppingCart from '../../utils/cart-context'
+import ShoppingCart from 'WNTR/utils/cart-context'
 
 const Product: FC<IProduct> = (product) => {
 
@@ -9,9 +9,9 @@ const Product: FC<IProduct> = (product) => {
     var index = [] as ISessionLineItem[]
 
     const [added, setAdded] = useState(false)
-    const [quantity, setQuantity] = useState(0)
+    const [quantity, setQuantity] = useState(product.quantity)
     const [total, setTotal] = useState(0)
-    const item: ISessionLineItem = {
+    var item: ISessionLineItem = {
         product: product.id,
         price: product.defaultPriceId,
         quantity: quantity,
@@ -22,12 +22,10 @@ const Product: FC<IProduct> = (product) => {
         setQuantity(event.target.value < product.available ? event.target.value : product.available)
         setTotal(event.target.value * product.defaultPrice.unitAmountDecimal)
     }
-
     const addToCart = () => {
         setAdded(true)
         cart.add(item)
     }
-
     const removeFromCart = () => {
         setAdded(false)
         cart.remove(item)
@@ -36,9 +34,8 @@ const Product: FC<IProduct> = (product) => {
     useEffect(() => {
         index = cart.items.filter((item: ISessionLineItem) => item.product == product.id)
         setAdded(index.length > 0)
-        setQuantity(added ? index[0]?.quantity : 0)
+        setQuantity(added ? index[0]?.quantity : product.quantity)
         setTotal((added ? index[0]?.quantity : quantity) * product.defaultPrice.unitAmountDecimal)
-        console.log(total)
     },[cart.items.length])
 
     return (
@@ -50,7 +47,7 @@ const Product: FC<IProduct> = (product) => {
                     </Col>
                     <Col xs={12} lg={6}>
                         <h2 className={`${product.alias}__name`}>{product.name}</h2>
-                        <p><small>Currently {product.available} in stock</small></p>
+                        <p><small>Currently {product.available} in stock. { added ? `You have ${quantity} of them in your cart.` : null}</small></p>
                         {!product.active || product.available < 1 ? <p><strong>Out of stock</strong></p> : null }
                         <InputGroup hidden={!product.active || product.available < 0} className={`${product.alias}__action`}>
                             <Form.Control type="number" min={1} max={product.available} placeholder="Qty" aria-label="Quantity" onChange={updateQuantity} disabled={added} value={ quantity } />

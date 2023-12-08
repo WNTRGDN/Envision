@@ -6,8 +6,8 @@ const ShoppingCart = React.createContext({
   state: false,
   add: (item: ISessionLineItem) => {},
   remove: (item: ISessionLineItem) => {},
-  open: () => {},
-  clear: () => {}
+  update: (item: ISessionLineItem) => {},
+  open: () => {}
 })
 
 export default ShoppingCart

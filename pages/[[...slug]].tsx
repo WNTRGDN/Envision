@@ -41,8 +41,8 @@ export default function Index({ website, page }: { website: IWebsite, page: IPag
       </Head>
       { process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production' ? <div className="sizeInd" /> : null }
       { context.loading ? <Loading /> : null }
-      <Header {...website} />
       <Cart />
+      <Header {...website} />
       <Main {...page} />
       <Footer {...website} />
     </>

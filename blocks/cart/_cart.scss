@@ -1,44 +1,63 @@
 .wntrCartBlock {
-    .container {
-        padding-top: calc(var(--gutter) * 2);
-    }
+    padding-top: calc(var(--gutter) * 2);
+    padding-bottom: calc(var(--gutter) * 2);
     &__heading {
         margin-bottom: calc(var(--gutter) * 2);
     }
-    &__summary {
-        background-color: var(--wntr-quaternary-color);
-        padding: var(--gutter);
-        &-table {
-            margin-bottom: var(--gutter);
-            width: 100%;
-            tr {
-                td:first-child {
-                    font-weight: bold;
-                }
-                td:last-child {
-                    text-align: right;
-                }
-            }
+    &__cart {
+        border-top: 1px solid var(--primary-color);
+        padding-top: calc(var(--gutter) * 2);
+    }
+    &__product {
+        margin-bottom: calc(var(--gutter) * 2);
+        border-bottom: 1px solid var(--primary-color);
+        padding-bottom: calc(var(--gutter) * 2);
+        padding-right: var(--gutter);
+        &:last-child {
+            margin-bottom: 0;
         }
-        &-checkout {
-            width: 100%;
-            border-radius: 0;
-            background-color: transparent;
+        &-actions {
+            display: flex;
+            justify-content: end;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            align-items: end;
+            -webkit-box-align: end;
+            -ms-flex-align: end;
         }
     }
-    &__item { 
-        border-bottom: 1px solid var(--secondary-color);
+    &__sidebar {
+        background-color: var(--primary-color);
         padding-top: var(--gutter);
-        &-image {
-            width: 100%;
-        }
     }
-
-    .wntrForm {
-        &__field {
-            input, textarea {
-                color: var(--wntr-white-color);
+    &__table {
+        tfoot {
+            td {
+                border-top: 1px solid var(--white-color);
+                border-bottom: 1px solid var(--white-color);
+                font-size: larger;
+                font-weight: bold;
             }
         }
+        tbody {
+            tr {
+                &:last-child {
+                    td {
+                        padding-bottom: calc(var(--gutter) * 2);
+                    }
+                }
+            }
+        }
+        td {
+            color: var(--white-color);
+            background-color: transparent;
+            &:last-child {
+                text-align: right;
+            }
+        }
+    }
+    &__image {
+        width: 100%;
+        height: auto;
     }
 }

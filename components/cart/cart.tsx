@@ -3,6 +3,7 @@ import Context from 'WNTR/utils/context'
 import ShoppingCart from 'WNTR/utils/cart-context'
 import { Offcanvas, ListGroup, Button } from 'react-bootstrap'
 import axios from 'axios'
+import {useRouter} from 'next/router'
 import { IProductLite, ISessionLineItem } from 'WNTR/interfaces'
 import Link from 'next/link'
 
@@ -10,6 +11,7 @@ const Cart: FC = () => {
 
     const context = useContext(Context)
     const cart = useContext(ShoppingCart)
+    const router = useRouter()
     const [show, setShow] = useState(false)
     const [items, setItems] = useState([] as IProductLite[])
     const handleClose = () => setShow(false)
@@ -25,9 +27,11 @@ const Cart: FC = () => {
     } 
 
     useEffect(() => {
-        setShow(true)
-        init()
-    },[cart.state])
+        if(context.website.cartPage != router.asPath) {
+            setShow(true)
+            init()
+        }
+    },[cart.state, cart.items.length])
 
     return(
         <Offcanvas show={show} onHide={handleClose} placement="end">
